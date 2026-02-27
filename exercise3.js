@@ -51,11 +51,13 @@ viewToggleBtn.addEventListener("click", () => {
 });
 
 sortByGroupBtn.addEventListener("click", () => {
-
-})
+    users.sort((a,b) => a.user_group - b.user_group);
+    render(users);
+});
 
 sortByIdBtn.addEventListener("click", () => {
-
+    users.sort((a,b) => a.id - b.id);
+    render(users);
 })
 
 deleteBtn.addEventListener("click", () => {
