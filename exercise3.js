@@ -69,16 +69,16 @@ deleteBtn.addEventListener("click", async () => {
     }
 
     try{
-        const response = await fetch('https://69a1e5192e82ee536fa28342.mockapi.io/users_api/${id}', { // wrong url?
+        const response = await fetch(`https://69a1e5192e82ee536fa28342.mockapi.io/users_api/${id}`, { // wrong url?
             method: "DELETE"
         });
         if (response.ok) {
             // remove user from local array
-            users = users.filter(user => user.id !== parseInt(id));
+            users = users.filter(user => user.id !== id);
             render(users);
-            console.log("User with id ${id} deleted.");
+            console.log(`User with id ${id} deleted.`);
         } else {
-            console.error("Error deleting user with id ${id}: ${response.statusText}" );
+            console.error(`Error deleting user with id ${id}: ${response.statusText}` );
         }
     } catch (error){
         console.error("Error deleting user: ", error);
